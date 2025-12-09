@@ -1,25 +1,19 @@
-version: "3.8"
+version: "3.9"
 services:
   flask:
     build: .
     container_name: flask
-    restart: always
     ports:
       - "5000:5000"
     depends_on:
       - redis
-    environment:
-      - FLASK_ENV=production
-
   redis:
-    image: redis:7
+    image: redis:alpine
     container_name: redis
-    restart: always
     ports:
       - "6379:6379"
-
   nginx:
-    image: nginx:latest
+    image: nginx:alpine
     container_name: nginx
     ports:
       - "80:80"

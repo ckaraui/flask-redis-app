@@ -1,26 +1,14 @@
-############################################################
-### 🏠 Root route (GET)
-############################################################
-GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/
-Accept: application/json
-
-
-############################################################
-### 👤 Auth: Register (POST)
-############################################################
+### Register user
 POST https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/auth/register
 Content-Type: application/json
 
 {
-  "username": "test",
+  "username": "test8",
   "password": "1234"
 }
 
-
-############################################################
-### 👤 Auth: Login (POST)
-############################################################
-POST https://<codespace>-80.app.github.dev/auth/login
+### Login to get JWT
+POST https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/auth/login
 Content-Type: application/json
 
 {
@@ -28,31 +16,30 @@ Content-Type: application/json
   "password": "1234"
 }
 
+> {% client.global.set("jwt_token", response.body.access_token) %}
 
-############################################################
-### 📚 Books: Get all books (GET)
-############################################################
-GET https://<codespace>-80.app.github.dev/api/books
-Accept: application/json
+### Use JWT for /me
+GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/auth/me
+Authorization: Bearer {{jwt_token}}
 
-
-############################################################
-### 📚 Books: Add a book (POST)
-############################################################
+### Add a book
 POST https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/api/books
 Content-Type: application/json
+Authorization: Bearer {{jwt_token}}
 
+{
+  "title": "Flask Senior Guide",
+  "author": "mee"
+}
 
+### Get all books
+GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/api/books
+Authorization: Bearer {{jwt_token}}
 
-############################################################
-### 🧠 Cache test (GET)
-############################################################
+### Cache expensive
 GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/cache/expensive
-Accept: application/json
+Authorization: Bearer {{jwt_token}}
 
-
-############################################################
-### 🧠 Cache clear (GET)
-############################################################
+### Clear cache
 GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/cache/clear
-Accept: application/json
+Authorization: Bearer {{jwt_token}}

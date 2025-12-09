@@ -1,0 +1,7 @@
+Flask==2.3.2
+Flask-SQLAlchemy
+Flask-JWT-Extended
+Flask-Caching
+redis
+Werkzeug
+gunicorn

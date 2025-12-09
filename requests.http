@@ -1,0 +1,58 @@
+############################################################
+### 🏠 Root route (GET)
+############################################################
+GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/
+Accept: application/json
+
+
+############################################################
+### 👤 Auth: Register (POST)
+############################################################
+POST https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/auth/register
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "1234"
+}
+
+
+############################################################
+### 👤 Auth: Login (POST)
+############################################################
+POST https://<codespace>-80.app.github.dev/auth/login
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "1234"
+}
+
+
+############################################################
+### 📚 Books: Get all books (GET)
+############################################################
+GET https://<codespace>-80.app.github.dev/api/books
+Accept: application/json
+
+
+############################################################
+### 📚 Books: Add a book (POST)
+############################################################
+POST https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/api/books
+Content-Type: application/json
+
+
+
+############################################################
+### 🧠 Cache test (GET)
+############################################################
+GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/cache/expensive
+Accept: application/json
+
+
+############################################################
+### 🧠 Cache clear (GET)
+############################################################
+GET https://probable-bassoon-4v54qrpq9rq2wvx-80.app.github.dev/cache/clear
+Accept: application/json

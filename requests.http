@@ -3,7 +3,7 @@ POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-  "username": "test255",
+  "username": "test25",
   "password": "1234"
 }
 
@@ -12,18 +12,18 @@ POST http://localhost:5000/auth/login
 Content-Type: application/json
 
 {
-  "username": "test255",
+  "username": "test25",
   "password": "1234"
 }
 
 ### Use JWT for /me
 GET http://localhost:5000/auth/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NTQ1MDE4MSwianRpIjoiYmVjZDQ5NTYtYTc0MC00OWRhLWJkMDctMGFiMTkwY2VlMTJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjU0NTAxODEsImV4cCI6MTc2NTQ1MTA4MX0.x0alTq6CTr1_wkNvvfuidaTlzMy3IFeNzFFdrdr4caM
+Authorization: Bearer {{jwt_token}}
 
 ### Add a book
 POST http://localhost:5000/books
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NTQ1MDE4MSwianRpIjoiYmVjZDQ5NTYtYTc0MC00OWRhLWJkMDctMGFiMTkwY2VlMTJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjU0NTAxODEsImV4cCI6MTc2NTQ1MTA4MX0.x0alTq6CTr1_wkNvvfuidaTlzMy3IFeNzFFdrdr4caM
+Authorization: Bearer {{jwt_token}}
 
 {
   "title": "Flask Senior Guide",
@@ -32,12 +32,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsI
 
 ### Get all books
 GET http://localhost:5000/books
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc2NTQ1MDE4MSwianRpIjoiYmVjZDQ5NTYtYTc0MC00OWRhLWJkMDctMGFiMTkwY2VlMTJlIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3NjU0NTAxODEsImV4cCI6MTc2NTQ1MTA4MX0.x0alTq6CTr1_wkNvvfuidaTlzMy3IFeNzFFdrdr4caM
+Authorization: Bearer {{jwt_token}}
 
 ### Cache expensive
 GET http://localhost:5000/cache/expensive
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+Authorization: Bearer {{jwt_token}}
 
 ### Clear cache
 POST http://localhost:5000/cache/clear
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+Authorization: Bearer {{jwt_token}}

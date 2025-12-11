@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+
+# Test / coverage / typing
+.pytest_cache/
+.cache/
+.mypy_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Flask / runtime
+instance/
+data/*.db
+data/*.sqlite
+*.sqlite3
+*.log
+
+# Docker
+.env
+docker-compose.override.yml
+
+# Redis
+dump.rdb

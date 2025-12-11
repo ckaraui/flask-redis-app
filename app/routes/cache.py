@@ -1,16 +1,16 @@
 from flask import Blueprint, jsonify
 from app.extensions import cache
+import time
 
-cache_bp = Blueprint("cache", __name__)
+cache_bp = Blueprint("cache", __name__, url_prefix="/cache")
 
-@cache_bp.route("/cache/expensive", methods=["GET"])
+@cache_bp.route("/expensive", methods=["GET"])
 @cache.cached(timeout=30)
 def expensive():
-    import time
-    time.sleep(2)  # simulate long computation
+    time.sleep(2)
     return jsonify({"value": "Expensive result"})
 
-@cache_bp.route("/cache/clear", methods=["GET"])
+@cache_bp.route("/clear", methods=["POST"])
 def clear_cache():
     cache.clear()
-    return jsonify({"message": "Cache cleared"})
+    return jsonify({"msg": "Cache cleared"})
